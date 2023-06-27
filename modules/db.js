@@ -107,11 +107,12 @@ exports.getAllDocuments = async function(collection, callback) {
   mongoDB.connect(connection_string, function(err, db) {
     if(err) throw err;
     var dbName = "sampledb"; // db.collection("sampledb").collection("test");
-    var allDocs = db.dbname.collection(collection).find().toArray(function(err, docs) {
-    alldocs; //  callback(docs);
-      console.log(allDocs);
-    db.close();
-     allDocs;
+    var allDocs;  
+    db.dbname.collection(collection).find().toArray(function(err, docs) {
+   // alldocs; //  callback(docs);
+    //  console.log(allDocs);
+  //  db.close();
+   //  allDocs;
    //   allDocs;
     });
   });

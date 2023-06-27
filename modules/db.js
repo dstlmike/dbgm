@@ -1,6 +1,6 @@
 //
 var sampledb = "sampledb";
-var collection = db.sampledb.collection("test");
+//var collection = db.sampledb.collection("test");
 /*
 var { MongoClient } = require('mongodb');
 var { MongoClient, ServerApiVersion } = require('mongodb');
@@ -106,6 +106,7 @@ function connect(callback){
 exports.getAllDocuments = function(collection, callback) {
   mongoDB.connect(connection_string, function(err, db) {
     if(err) throw err;
+    var collection = db.sampledb.collection("test");
     var allDocs = db.collection(collection).find().toArray(function(err, docs) {
       callback(docs);
     db.close();

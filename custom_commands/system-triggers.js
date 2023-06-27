@@ -25,7 +25,7 @@ exports.checkCommands = function(dataHash, callback) {
     for (trigger in triggers) {
       trigger = triggers[trigger];
       var triggerReg = new RegExp(trigger.regex, "i");
-      if (trigger.bots.indexOf(dataHash.currentBot.type) > -1 && dataHash.request.text && triggerReg.test(dataHash.request.text)){
+      if (dataHash.request.text && triggerReg.test(dataHash.request.text)){
         var val = triggerReg.exec(dataHash.request.text);
 
         callback(true, trigger.message, []);
@@ -35,7 +35,7 @@ exports.checkCommands = function(dataHash, callback) {
   }
 
   for (cmd in sysTriggersCommands) {
-    var test = sysTriggersCommands[cmd](dataHash.request, dataHash.bots, dataHash.isMod, callback);
+    var test = sysTriggersCommands[cmd](dataHash.request, callback);
     if (test)
       return test;
   }
@@ -59,13 +59,13 @@ function addCommandCmd(request, bots, isMod, callback) {
 
   if (regex.test(reqText)){
     var val = regex.exec(reqText);
-
+/*
     if (!isMod) {
       var msg = request.name + " you have no power here!";
       callback(true, msg, []);
       return msg;
     }
-
+*/
     for (trigger in triggers) {
       if (triggers[trigger].name == val[1]) {
         var msg = val[1] + " already exists";
@@ -95,13 +95,13 @@ function describeCmd(request, bots, isMod, callback) {
 
   if (regex.test(reqText)){
     var val = regex.exec(reqText);
-
+/*
     if (!isMod) {
       var msg = request.name + " who you trying to kid?";
       callback(true, msg, []);
       return msg;
     }
-
+*/
     for (trigger in triggers) {
       if (triggers[trigger].name == val[1]) {
         triggers[trigger]["description"] = val[2];

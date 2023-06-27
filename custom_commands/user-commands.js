@@ -56,7 +56,7 @@ exports.checkCommands = function(dataHash, callback) {
   for (cmd in commands) {
     cmd = commands[cmd];
     //hard coded temporarily ... maybe permanently ... losing motivation to work on this
-    if(cmd.name == 'cc' && dataHash.currentBot.type == 'hp')
+    if(cmd.name == 'cc')
       continue;
     var cmdReg = new RegExp(cmd.regex, "i");
     if (dataHash.request.text && cmdReg.test(dataHash.request.text)){
@@ -67,7 +67,7 @@ exports.checkCommands = function(dataHash, callback) {
   }
 
   for (cmd in userCommands) {
-    var test = userCommands[cmd](dataHash.request, dataHash.bots, dataHash.isMod, callback);
+    var test = userCommands[cmd](dataHash.request, callback);
     if (test)
       return test;
   }
@@ -103,13 +103,13 @@ function addCmd(request, bots, isMod, callback) {
 
   if (regex.test(reqText)){
     var val = regex.exec(reqText);
-
+/*
     if (!isMod) {
       var msg = "You don't have permission to add commands"
       callback(true, msg, []);
       return msg;
     }
-
+*/
     for (cmd in commands) {
       if (commands[cmd].name == val[1]) {
         var msg = val[1] + " already exists";
@@ -138,13 +138,13 @@ function describeCmd(request, bots, isMod, callback) {
 
   if (regex.test(reqText)){
     var val = regex.exec(reqText);
-
+/*
     if (!isMod) {
       var msg = "You don't have permission to describe commands"
       callback(true, msg, []);
       return msg;
     }
-
+*/
     for (cmd in commands) {
       if (commands[cmd].name == val[1].toLowerCase()) {
         commands[cmd]["description"] = val[2];
@@ -169,13 +169,13 @@ function removeCmd(request, bots, isMod, callback) {
 
   if (regex.test(reqText)){
     var val = regex.exec(reqText);
-
+/*
     if (!isMod) {
       var msg = "You don't have permission to remove commands"
       callback(true, msg, []);
       return msg;
     }
-
+*/
     val[1] = val[1].toLowerCase();
 
     for (cmd in commands) {
@@ -200,13 +200,13 @@ function editCmd(request, bots, isMod, callback) {
 
   if (regex.test(reqText)){
     var val = regex.exec(reqText);
-
+/*
     if (!isMod) {
       var msg = "You don't have permission to edit commands"
       callback(true, msg, []);
       return msg;
     }
-
+*/
     val[1] = val[1].toLowerCase();
     for (cmd in commands) {
       if (commands[cmd].name == val[1]) {

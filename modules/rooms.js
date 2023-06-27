@@ -34,7 +34,7 @@ function setAccessTokenDB(config, callback){
 
 
 exports.getRooms = function() {
-  rooms = [];
+  //rooms = [];
   return rooms;
 }
 
@@ -43,8 +43,8 @@ exports.getRoom = function(path) {
   path = path.toLowerCase();
 
   if (rooms[path]) {
-    room.type = path;
-    room.id = rooms[path];
+    room.type = path,
+    room.id = rooms[path]
   }
 
   return room;

@@ -98,11 +98,11 @@ function cmdConfig(request, callback) {
   if (regex.test(reqText)) {
     var val = regex.exec(reqText);
 
-  //  if (rooms['config']){
-    //  console.log(request);
-    //  callback(true, "You've already set a config ID. If you wish to reset it for some reason, you'll need to clear the database and start over.")
-   //  return true;
-//   } else
+   if (rooms['config']){
+      console.log(request);
+      callback(true, "You've already set a config ID. If you wish to reset it for some reason, you'll need to clear the database and start over.")
+    return true;
+   } else
     if (val[1].length != 26) {
       callback(true, "That's not the right length for a Bot ID", []);
       return true;
@@ -131,7 +131,7 @@ function cmdToken(request, callback) {
 
   if (regex.test(reqText)) {
     //if (request.user_id != owner.id || currentBot.type != 'config')
-      return true;
+    //  return true;
 
     var val = regex.exec(reqText);
 

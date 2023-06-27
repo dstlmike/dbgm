@@ -38,9 +38,9 @@ exports.respond = function(botRoom) {
 
   var dataHash = {
     request:      request,
-    currentBot:   rooms.getRoom(botRoom),
+    //currentBot:   rooms.getRoom(botRoom),
     isMod:        "10241176", //mods.isMod(request.user_id),
-    bots:         rooms.getRooms()
+    //bots:         rooms.getRooms()
     //funMode:      sysCommands.fun_mode(),
     //owner:        config.owner
   };
@@ -48,7 +48,7 @@ console.log(request);
   this.res.writeHead(200);
   this.res.end();
 
-  if (dataHash.request.sender_type == 'bot') return;
+  //if (dataHash.request.sender_type == 'bot') return;
   dataHash.request.text = dataHash.request.text.trim();
 
  // if (!rooms.getRoom(botRoom).id && botRoom != 'config1')
@@ -56,7 +56,7 @@ console.log(request);
 
   for(var lib in checkCommandsHSH) {
     checkCommandsHSH[lib].checkCommands(dataHash, function(check, result, attachments){
-      if (check) sendDelayedMessage(result, attachments, botID); //rooms.getRoom(botRoom).id);
+      if (check) sendDelayedMessage(result, attachments, rooms.getRoom(botRoom).id);
     });
   }
 }
@@ -78,14 +78,14 @@ exports.commands = function() {
   this.res.end(output);
 }
 
-function sendDelayedMessage(msg, attachments, botID) {
+function sendDelayedMessage(msg, attachments, botID, botReq) {
   setTimeout(function() {
-    postMessage(msg, attachments, botID);
+    postMessage(msg, attachments, botID, botReq);
   }, 1000); //config.delay_time);
 }
 
-function postMessage(botResponse, attachments, botID) {
-  var options, body, botReq;
+function postMessage(botResponse, attachments, botID, botReq) {
+  var options, body, botReq, botID;
 botID = "99a3229635d13195ec4d0fe4e7";
  // botID = "777a2e0f2b381b245535131277";
   options = {

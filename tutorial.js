@@ -56,7 +56,7 @@ async function connectMain(client, newListing) {
   bathrooms: newListing.bathrooms
 }
 
-  var result = await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListing);
+  var result = await client.db("sampledb").collection("test").insertOne(newListing);
   //if (callback) callback(newListing);
   console.log(result, newListing);
 

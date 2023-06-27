@@ -106,8 +106,8 @@ function connect(callback){
 exports.getAllDocuments = function(collection, callback) {
   mongoDB.connect(connection_string, function(err, db) {
     if(err) throw err;
-    var collection = db.db("sampledb").collection("test");
-    var allDocs = collection.find().toArray(function(err, docs) {
+    var dbName = db.collection("sampledb").collection("test");
+    var allDocs = dbName.find().toArray(function(err, docs) {
       callback(docs);
     db.close();
    //   allDocs;

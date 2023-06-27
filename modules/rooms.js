@@ -1,7 +1,7 @@
 var db_table = 'rooms';
 var db = require('./db.js');
 var mod_config = require('../config/config.js');
-var rooms;
+var rooms = [];
 var roomCommands = [cmdRoomAdd, cmdToken, cmdConfig];
 var botID = "99a3229635d13195ec4d0fe4e7"; // "777a2e0f2b381b245535131277";
 getAllRooms();
@@ -9,7 +9,7 @@ exports.modName = "Rooms Control";
 
 function getAllRooms(){
   db.getAllDocuments(db_table, function(res){
-    rooms = [];
+     res = [];
     //res = [];
     for (room in res) {
     //  rooms[room].name = rooms[room].id; //
@@ -43,8 +43,8 @@ exports.getRoom = function(path) {
   path = path.toLowerCase();
 
   if (rooms[path]) {
-    room.type = path,
-    room.id = rooms[path]
+    room.type = path;
+    room.id = rooms[path];
   }
 
   return room;

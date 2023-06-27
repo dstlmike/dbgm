@@ -108,7 +108,7 @@ function cmdConfig(request, callback) {
       return true;
     }
 
-    rooms['config'] = val[1];
+   // rooms['config'] = val[1];
     addRoomToDB({
       name: 'config',
       id: val[1]

@@ -101,7 +101,7 @@ function cmdConfig(request, callback) {
  //  if (rooms['config']){
       console.log(request);
     //  callback(true, "You've already set a config ID. If you wish to reset it for some reason, you'll need to clear the database and start over.")
-    return true;
+  //  return true;
    //} else
     if (val[1].length != 26) {
       callback(true, "That's not the right length for a Bot ID", []);

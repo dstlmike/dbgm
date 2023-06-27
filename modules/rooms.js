@@ -45,9 +45,9 @@ exports.getRoom = function(path) {
 //  if (rooms[path]) {
     room.type = path;
     room.id = botID; //rooms[path];
-  }
+//  }
 
-  return room;
+ // return room;
 }
 
 exports.checkCommands = function(dataHash, callback) {

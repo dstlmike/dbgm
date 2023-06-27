@@ -124,8 +124,9 @@ MongoClient.connect(uri, function(err, client) {
    //  allDocs;
    //   allDocs;
     });
+    */
   });
-  */
+  
 }
 
 exports.findDocs = async function(collection, matchHash, callback) {

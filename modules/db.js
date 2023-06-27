@@ -108,7 +108,7 @@ exports.getAllDocuments = async function(collection, callback) {
     if(err) throw err;
     var dbName = "sampledb"; // db.collection("sampledb").collection("test");
     var allDocs;  
-    db.dbname.collection(collection).find().toArray(function(err, docs) {
+    db.dbname(collection).find().toArray(function(err, docs) {
    // alldocs; //  callback(docs);
     //  console.log(allDocs);
   //  db.close();

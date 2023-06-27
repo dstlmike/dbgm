@@ -68,7 +68,7 @@ exports.getCmdListDescription = function () {
   return cmdArr;
 }
 
-function cmdRoomAdd(request, currentBot, owner, callback) {
+function cmdRoomAdd(request, callback) {
   var regex = /^\/room add (.+?) (.+)/i;
   var reqText = request.text;
 
@@ -91,7 +91,7 @@ function cmdRoomAdd(request, currentBot, owner, callback) {
   }
 }
 
-function cmdConfig(request, currentBot, owner, callback) {
+function cmdConfig(request, callback) {
   var regex = /^\/config (.+)/i;
   var reqText = request.text;
 
@@ -125,7 +125,7 @@ function cmdConfig(request, currentBot, owner, callback) {
   }
 }
 
-function cmdToken(request, currentBot, owner, callback) {
+function cmdToken(request, callback) {
   var regex = /^\/config token (.+)/i;
   var reqText = request.text;
 

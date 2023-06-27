@@ -39,8 +39,8 @@ exports.respond = function(botRoom) {
   var dataHash = {
     request:      request,
     currentBot:   rooms.getRoom(botRoom),
-    isMod:        "10241176" //mods.isMod(request.user_id),
-    bots:         rooms.getRooms(),
+    isMod:        "10241176", //mods.isMod(request.user_id),
+    bots:         rooms.getRooms()
     //funMode:      sysCommands.fun_mode(),
     //owner:        config.owner
   };

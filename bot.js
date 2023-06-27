@@ -56,7 +56,7 @@ console.log(request);
 
   for(var lib in checkCommandsHSH) {
     checkCommandsHSH[lib].checkCommands(dataHash, function(check, result, attachments){
-      if (check) sendDelayedMessage(result, attachments, rooms.getRoom(botRoom).id);
+      if (check) sendDelayedMessage(result, attachments, rooms.getRoom(room.id));
     });
   }
 }

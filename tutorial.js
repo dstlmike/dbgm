@@ -62,7 +62,7 @@ async function connectMain(client, newListing) {
 
 }
 
-connect().catch(console.err);
+main().catch(console.err);
 //main().catch(console.err);
 
 

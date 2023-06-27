@@ -1,4 +1,4 @@
-
+var MongoClient = require('mongodb').MongoClient;
 var sampledb = "sampledb";
 //var collection = db.sampledb.collection("test");
 /*
@@ -103,8 +103,17 @@ function connect(callback){
   });
 }
 
-exports.getAllDocuments = async function(collection, callback) {
- await mongoDB.connect(connection_string, function(db) {
+exports.getAllDocuments = function(callback) {
+MongoClient.connect(uri, function(err, client) { 
+  var collection = client.db("test").collection("devices"); // perform actions on the collection object 
+ var allDocs = collection.find().toArray(function(err, docs) {
+  allDocs;
+   callback(docs);
+   console.log(docs);
+  client.close();
+});
+  /*
+  await mongoDB.connect(connection_string, function(db) {
 //    if(err) throw err;
     var dbName = "sampledb"; // db.collection("sampledb").collection("test");
     var allDocs;  
@@ -116,6 +125,7 @@ exports.getAllDocuments = async function(collection, callback) {
    //   allDocs;
     });
   });
+  */
 }
 
 exports.findDocs = async function(collection, matchHash, callback) {

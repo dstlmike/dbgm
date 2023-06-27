@@ -75,7 +75,7 @@ async function createListing(client, newListing){
   bathrooms: newListing.bathrooms
 }
 
-  var result = await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListing);
+  var result = await client.db("sampledb").collection("test").insertOne(newListing);
   console.log(result, newListing);
 }
 

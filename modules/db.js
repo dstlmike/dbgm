@@ -111,7 +111,7 @@ exports.getAllDocuments = async function(collection, callback) {
     alldocs; //  callback(docs);
       console.log(allDocs);
     db.close();
-      await allDocs;
+     allDocs;
    //   allDocs;
     });
   });

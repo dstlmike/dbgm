@@ -107,8 +107,8 @@ exports.getAllDocuments = async function(collection, callback) {
   mongoDB.connect(connection_string, function(err, db) {
     if(err) throw err;
     var dbName = db.collection("sampledb").collection("test");
-    var allDocs = db.collection(collection).find().toArray(function(err, docs) {
-    await alldocs; //  callback(docs);
+    var allDocs = await db.collection(collection).find().toArray(function(err, docs) {
+    alldocs; //  callback(docs);
       console.log(allDocs);
     db.close();
    //   allDocs;

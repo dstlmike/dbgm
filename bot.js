@@ -48,7 +48,7 @@ console.log(request);
   this.res.writeHead(200);
   this.res.end();
 
-  //if (dataHash.request.sender_type == 'bot') return;
+  if (dataHash.request.sender_type == 'bot') return;
   dataHash.request.text = dataHash.request.text.trim();
 
  // if (!rooms.getRoom(botRoom).id && botRoom != 'config1')

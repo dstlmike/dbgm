@@ -5,7 +5,7 @@ var sysCommands  = require('./modules/sys-commands.js');
 var db           = require('./modules/db.js');
 //var mods         = require('./modules/mods.js');
 //var commandList  = require('./modules/command-list.js');
-//var rooms        = require('./modules/rooms.js');
+var rooms        = require('./modules/rooms.js');
 //
 //commands with custom actions
 var userCmds     = require('./custom_commands/user-commands.js');
@@ -21,9 +21,9 @@ var funCommands  = require('./custom_commands/fun-commands.js');
 //load config
 var config       = require('./config/config.js');
 var HTTPS        = require('https');
-var botID = "278d003500f103570550f5a604";
+var botID = "99a3229635d13195ec4d0fe4e7";
 //Temporarily just an array of the commands functions. Make an object with configuration values.
-var checkCommandsHSH = [sysTriggers, userCmds, sysCommands];
+var checkCommandsHSH = [sysTriggers, userCmds, sysCommands, rooms];
 
 exports.init = function() {
   var req = this.req;
@@ -86,7 +86,7 @@ function sendDelayedMessage(msg, attachments, botID) {
 
 function postMessage(botResponse, attachments, botID) {
   var options, body, botReq;
-botID = "278d003500f103570550f5a604";
+botID = "99a3229635d13195ec4d0fe4e7";
  // botID = "777a2e0f2b381b245535131277";
   options = {
     hostname: 'api.groupme.com',

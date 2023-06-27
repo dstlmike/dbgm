@@ -103,7 +103,7 @@ function connect(callback){
   });
 }
 
-exports.getAllDocuments = function(collection, callback) {
+exports.getAllDocuments = async function(collection, callback) {
   mongoDB.connect(connection_string, function(err, db) {
     if(err) throw err;
     var dbName = db.collection("sampledb").collection("test");
@@ -116,7 +116,7 @@ exports.getAllDocuments = function(collection, callback) {
   });
 }
 
-exports.findDocs = function(collection, matchHash, callback) {
+exports.findDocs = async function(collection, matchHash, callback) {
   mongoDB.connect(connection_string, function(err, db) {
 
     var cursor = db.collection(collection).find(matchHash);

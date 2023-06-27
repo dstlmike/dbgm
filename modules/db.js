@@ -1,4 +1,4 @@
-//
+
 var sampledb = "sampledb";
 //var collection = db.sampledb.collection("test");
 /*

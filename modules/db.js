@@ -117,7 +117,8 @@ exports.getAllDocuments = function(collection, callback) {
 }
 
 exports.findDocs = function(collection, matchHash, callback) {
-  connect(function(db){
+  mongoDB.connect(connection_string, function(err, db) {
+
     var cursor = db.collection(collection).find(matchHash);
     var ret = [];
     cursor.each(function(err, doc){
@@ -130,7 +131,8 @@ exports.findDocs = function(collection, matchHash, callback) {
 }
 
 exports.addDoc = function(collection, doc, callback) {
-  connect(function(db){
+  mongoDB.connect(connection_string, function(err, db) {
+
     var ret = db.collection(collection).insert(doc, function(err, result){
       if (callback)
         callback(result);
@@ -140,7 +142,8 @@ exports.addDoc = function(collection, doc, callback) {
 }
 
 exports.updateOneDoc = function(collection, findJson, updateJson, callback) {
-  connect(function(db){
+  mongoDB.connect(connection_string, function(err, db) {
+
     var ret = db.collection(collection).updateOne(findJson, updateJson, function(err, result) {
       if (callback)
         callback(result);
@@ -150,7 +153,8 @@ exports.updateOneDoc = function(collection, findJson, updateJson, callback) {
 }
 
 exports.removeOneDoc = function(collection, findJson, callback) {
-  connect(function(db){
+  mongoDB.connect(connection_string, function(err, db) {
+
     var ret = db.collection(collection).deleteOne(findJson, function(err, result){
       if (callback)
         callback(result);
@@ -160,7 +164,8 @@ exports.removeOneDoc = function(collection, findJson, callback) {
 }
 
 exports.countDocs = function (collection, callback) {
-  connect(function(db){
+  mongoDB.connect(connection_string, function(err, db) {
+
     var ret = db.collection(collection).count(function(err, result){
       if (callback)
         callback(result);
@@ -170,7 +175,8 @@ exports.countDocs = function (collection, callback) {
 }
 
 exports.randomDoc = function(collection, callback) {
-  connect(function(db){
+  mongoDB.connect(connection_string, function(err, db) {
+
     var coll = db.collection(collection);
     cursor = coll.find({});
 

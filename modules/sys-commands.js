@@ -38,7 +38,7 @@ function funCmd(dataHash, callback) {
         callback(true, "I'm fun again!", []);
       }
     } else {
-      callback(true, "You're not the boss of me", []);
+     // callback(true, "You're not the boss of me", []);
   //  }
   //} else {
     return false;
@@ -57,7 +57,7 @@ function noFunCmd(dataHash, callback) {
         callback(true, "I'm no fun anymore!", []);
     //  }
     //} else {
-      callback(true, "You're not the boss of me", []);
+    //  callback(true, "You're not the boss of me", []);
     }
   } else {
     return false;

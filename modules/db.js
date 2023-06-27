@@ -1,5 +1,5 @@
 //
-var collection = db.("sampledb).collection("test");
+var collection = db.("sampledb").collection("test");
 /*
 var { MongoClient } = require('mongodb');
 var { MongoClient, ServerApiVersion } = require('mongodb');
